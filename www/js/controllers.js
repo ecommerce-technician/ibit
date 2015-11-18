@@ -24,7 +24,6 @@ angular.module('app.controllers', [])
         var success = function(response) {
             $ionicLoading.hide();
             $scope.clearForms();
-
             //$state.go('app.dashboardget', {}, {reload: true});
         };
         $ionicLoading.show({
@@ -37,5 +36,28 @@ angular.module('app.controllers', [])
         //    console.log(JSON.stringify(error));
         //});
     }
-}]);
+}])
 
+.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+  $scope.chat = Chats.get($stateParams.chatId);
+
+    $scope.submit = function() {
+        if ($scope.money) {
+            var query= $scope.money;
+
+            IssuesResource.create({statements : [{
+                statement:query
+            }]});
+        }
+    };
+})
+
+.controller('DashCtrl', function($scope) {})
+
+.factory('IssuesResource', function($resource){
+    return $resource('http://192.168.1.229:8080/api/account/account', null, {
+        create: {
+            method: 'POST',
+        }
+    })
+})
