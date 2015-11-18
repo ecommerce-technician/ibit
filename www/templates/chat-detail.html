@@ -11,15 +11,15 @@
       {{chat.lastText}}
     </p>
         <div class="spacer" style="width: 300px; height: 34.9757px;"></div>
-        <form class="list">
+        <form class="list" novalidate="novalidate" ng-submit="submit()">
             <ion-list></ion-list>
             <label class="item item-input">
                 <span class="input-label">input amount</span>
-                <input type="text" placeholder="">
+                <input md-maxlength="30" type="text" ng-model="money" name="money" value="" id="money"/>
             </label>
         </form>
         <div class="spacer" style="width: 300px; height: 80px;"></div>
-        <button class="button button-stable button-block ">Send</button>
+        <button type="submit" class="button button-stable button-block ">Send</button>
     </ion-content>
 </ion-view>
 

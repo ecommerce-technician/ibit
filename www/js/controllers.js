@@ -1,5 +1,13 @@
 angular.module('starter.controllers', [])
 
+    .factory('IssuesResource', function($resource){
+        return $resource('http://192.168.1.229:8080/api/account/account', null, {
+            create: {
+                method: 'POST',
+            }
+        })
+    })
+
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
@@ -19,6 +27,16 @@ angular.module('starter.controllers', [])
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
+
+    $scope.submit = function() {
+        if ($scope.money) {
+            var query= $scope.money;
+
+            IssuesResource.create({statements : [{
+                statement:query
+            }]});
+        }
+    };
 })
 
 .controller('AccountCtrl', function($scope) {
