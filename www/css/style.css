@@ -1,13 +1,18 @@
 /* Empty. Add your own CSS if you like */
-.profile-details {
-	padding-top: 50px;
+.user-info {
+}
+
+.balance {
 	font-size: 72px;
+	margin: 72px 0px 33px;
+	color: green;
 }
 
-.profile-details .avatar {
-	margin-left: 13px;
+.invite .button{
+	margin-top: 55px;
+	width: 60%;
 }
 
-.profile-details .contact {
+.item-input {
 
 }
