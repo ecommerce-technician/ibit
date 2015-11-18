@@ -1,5 +1,4 @@
 angular.module('app.routes', [])
-
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -7,19 +6,23 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-      
         
     .state('login', {
-      url: '/page1',
+      url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'loginCtrl'
+    })
+
+    .state('profile', {
+      url: '/profile',
+      templateUrl: 'templates/tab-dash.html',
+      controller: 'DashCtrl'
     })
         
       
     ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/page1');
+  $urlRouterProvider.otherwise('/login');
 
 });

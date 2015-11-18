@@ -24,13 +24,16 @@ angular.module('app.controllers', [])
         var success = function(response) {
             $ionicLoading.hide();
             $scope.clearForms();
-            //$state.go('app.dashboardget', {}, {reload: true});
+            $state.go('profile', {}, {reload: false});            
         };
         $ionicLoading.show({
             template: 'Logging In...'
         });
         
         console.log($scope.user);
+        $ionicLoading.hide();
+
+        $state.go('profile'); //, {}, {reload: false});            
         //Login Logic here
         //AuthService.login($scope.user,provider).then(success,error).catch(function (error) {
         //    console.log(JSON.stringify(error));
